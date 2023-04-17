@@ -1,0 +1,34 @@
+version: '3'
+#
+# NB, no specific volumes set, data storage will default to /var/lib/docker/volumes on ubuntu
+# clean up with docker volume prune
+#
+services:
+
+  sbrjm-influxdb:
+    build:
+      context: .
+      dockerfile: test-container-config/influxdb/Dockerfile
+    ports:
+      - "127.0.0.1:8186:8086"
+    env_file:
+      - 'test-container-config/influxdb/influxdb.env'
+    network_mode: "host"
+  sbrjm-grafana:
+    build:
+      context: .
+      dockerfile: test-container-config/grafana/Dockerfile
+    ports:
+      - "127.0.0.1:4000:3000"
+    env_file:
+      - 'test-container-config/grafana/grafana.env'
+    depends_on:
+      - sbrjm-influxdb
+    network_mode: "host"
+  sbrjm-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - sbrjm-influxdb
+    network_mode: "host"

@@ -1,0 +1,12 @@
+datasources:
+  -  access: direct                      # require username/password
+     user: 'influx'
+     password: 'influxpwd'
+     editable: true                        # whether it should be editable
+     is_default: true                      # whether this should be the default DS
+     name: 'InfluxDB'                      # name of the datasource
+     org_id: 1                             # id of the organization to tie this datasource to
+     type: influxdb                      # type of the data source
+     url: 'http://localhost:8086'          # url of the prom instance
+     database: 'springboot'
+     version: 1                            # well, versioning
