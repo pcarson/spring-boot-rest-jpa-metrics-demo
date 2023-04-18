@@ -17,7 +17,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 1,
-  "iteration": 1681723410717,
+  "iteration": 1681799499069,
   "links": [],
   "panels": [
     {
@@ -26,6 +26,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
+      "decimals": 0,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -42,8 +43,8 @@
         "max": false,
         "min": false,
         "show": true,
-        "total": false,
-        "values": false
+        "total": true,
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -93,6 +94,12 @@
                 "method"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
             }
           ],
           "measurement": "http_server_requests",
@@ -192,6 +199,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
+      "decimals": 0,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -208,8 +216,8 @@
         "max": false,
         "min": false,
         "show": true,
-        "total": false,
-        "values": false
+        "total": true,
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -265,6 +273,12 @@
                 "method"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
             }
           ],
           "measurement": "http_server_requests",
@@ -368,6 +382,7 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "InfluxDB",
+      "decimals": 0,
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -384,8 +399,8 @@
         "max": false,
         "min": false,
         "show": true,
-        "total": false,
-        "values": false
+        "total": true,
+        "values": true
       },
       "lines": true,
       "linewidth": 1,
@@ -441,6 +456,12 @@
                 "method"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
             }
           ],
           "measurement": "http_server_requests",
@@ -520,6 +541,12 @@
                 "method"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
             }
           ],
           "measurement": "http_server_requests",
@@ -599,6 +626,12 @@
                 "method"
               ],
               "type": "tag"
+            },
+            {
+              "params": [
+                "0"
+              ],
+              "type": "fill"
             }
           ],
           "measurement": "http_server_requests",
@@ -1344,7 +1377,6 @@
     ]
   },
   "timezone": "",
-  "title": "Springboot Demo",
-  "uid": "6pAiDmP4k",
+  "title": "Springboot REST JPA Demo",
   "version": 1
 }

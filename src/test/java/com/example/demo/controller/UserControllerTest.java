@@ -13,8 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import java.util.Date;
-import java.util.UUID;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -42,6 +41,15 @@ class UserControllerTest {
     void testUserCreateUserAlreadyExists() throws UserExistsException, UserServiceException {
         // succeed ...
         when(userService.createUser(any())).thenThrow(new UserExistsException(""));
+        ResponseEntity<?> response = controller.createUser(getDummyUserDTO());
+        verify(userService).createUser(any());
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    void testUserCreateUserDisasterStrikes() throws UserExistsException, UserServiceException {
+        // succeed ...
+        when(userService.createUser(any())).thenThrow(new NullPointerException(""));
         ResponseEntity<?> response = controller.createUser(getDummyUserDTO());
         verify(userService).createUser(any());
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
@@ -81,6 +89,36 @@ class UserControllerTest {
         ResponseEntity<?> response = controller.getUserByEmailAddress("x@y.com");
         verify(userService).getUserByEmailAddress(any());
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    void testGetUserByEmailDisasterStrikes() throws UserNotFoundException, UserServiceException {
+        // succeed ...
+        when(userService.getUserByEmailAddress(any())).thenThrow(new NullPointerException());
+        ResponseEntity<?> response = controller.getUserByEmailAddress("x@y.com");
+        verify(userService).getUserByEmailAddress(any());
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
+
+    @Test
+    void testGetAllUsersNoneFound() {
+        // succeed ...
+        when(userService.getUsers()).thenReturn(Collections.emptyList());
+        ResponseEntity<?> response = controller.getAllUsers();
+        verify(userService).getUsers();
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    void testGetAllUsersSomeFound() {
+        var found = 5;
+        UserDTO[] users = new UserDTO[found];
+        Arrays.fill(users, getDummyUserDTO());
+        when(userService.getUsers()).thenReturn(Arrays.asList(users));
+        ResponseEntity<List<UserDTO>> response = controller.getAllUsers();
+        verify(userService).getUsers();
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(found, response.getBody().size());
     }
 
     @Test
