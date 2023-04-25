@@ -43,7 +43,7 @@ docker-compose up
 * this should start all of the necessary containers
 
 Once all containers are running, you can proceed to add some data over the demo REST API
-* click [here](http://localhost:3000/swagger-ui.html) to access and use the Open API documentation to add some data 
+* click [here](http://localhost:8080/swagger-ui.html) to access and use the Open API documentation to add some data 
   * Add some data:
     * Find the POST /users option and select 'Try it out'
     * Click on the 'Execute' button a few times
