@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot REST crud with H2 spring data implementation</description>
 	<properties>
 		<java.version>17</java.version>
-		<org.projectlombok.version>1.18.16</org.projectlombok.version>
+		<org.projectlombok.version>1.18.26</org.projectlombok.version>
 		<org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
 		<openapi-webmvc-ui.version>2.0.0</openapi-webmvc-ui.version>
 		<javax-annotation.version>1.3.2</javax-annotation.version>
