@@ -25,10 +25,10 @@ The grafana dashboard can be viewed, once started, see [here](http://localhost:3
 ### to see the demo ......
 * you'll need docker/docker-compose installed locally - you'll have to check that out yourself ..
 * clone this repository to your local disk
-* build the springboot demo. If you want to do this yourself, you'll need maven and java 17 installed
+* build the springboot demo. If you want to do this yourself, you'll need java 17 installed, and if not using the maven wrapper mvnw mentioned below, a local install of maven
   * on the command line in the root directory (i.e. the same directory as the 'pom.xml' file), type
 ```agsl
-mvn clean install
+./mvnw clean install
 ```
 * once the build finishes, there should be a file 'rest-jpa-metrics-demo-0.0.1-SNAPSHOT.jar' visible in the target directory
 * on the command line in the root directory (i.e. the same directory as the 'docker-compose.yml' file), type
