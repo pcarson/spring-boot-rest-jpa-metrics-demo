@@ -10,6 +10,13 @@ This demo repository contains a springboot 3 maven project which
 * sends metrics to a configured influxDB using the micrometer libraries 
 * exposes swagger/open-api interface information - once started, see [here](http://localhost:8080/swagger-ui.html)
 
+### development environment: <a name="environment"></a>
+This code was developed and tested on:
+```agsl
+* Linux 5.15.0-71-generic #78-Ubuntu x86_64 GNU/Linux
+* OpenJDK Runtime Environment (build 17.0.6+10-Ubuntu-0ubuntu122.04)
+```
+
 ### docker-compose
 The docker-compose.yml file contains configuration for
 * starting an influx DB docker container
