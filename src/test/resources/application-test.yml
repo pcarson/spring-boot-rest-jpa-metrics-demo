@@ -1,0 +1,9 @@
+#
+# Picked up by annotation @ActiveProfiles("test")
+#
+
+management:
+  influx:
+    metrics:
+      export:
+        enabled: false # Whether exporting of metrics to this backend is enabled.
