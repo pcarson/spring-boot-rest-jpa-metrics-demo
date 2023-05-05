@@ -37,7 +37,7 @@ The grafana dashboard can be viewed, once started, see [here](http://localhost:3
 ```agsl
 ./mvnw clean install
 ```
-* once the build finishes, there should be a file 'rest-jpa-metrics-demo-0.0.1-SNAPSHOT.jar' visible in the target directory
+* once the build finishes, there should be a file 'spring-boot-rest-jpa-metrics-demo-0.0.1-SNAPSHOT.jar' visible in the target directory
 * on the command line in the root directory (i.e. the same directory as the 'docker-compose.yml' file), type
 ```agsl
 docker-compose build
