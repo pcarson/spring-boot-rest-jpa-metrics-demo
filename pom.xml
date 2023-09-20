@@ -20,6 +20,18 @@
 		<openapi-webmvc-ui.version>2.0.0</openapi-webmvc-ui.version>
 		<javax-annotation.version>1.3.2</javax-annotation.version>
         <h2.db.version>2.1.214</h2.db.version>
+
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.login>199318437e72c10d1471e4ff659c85b7e689d104</sonar.login>
+        <sonar.coverage.exclusions>
+            **/enums/**/*,
+            **/entity/**/*,
+            **/dto/**/*,
+            **/s3/**/*,
+            **/sns/**/*,
+            **/util/*
+        </sonar.coverage.exclusions>
+
 	</properties>
 	<dependencies>
 		<dependency>
