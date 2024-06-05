@@ -1,0 +1,29 @@
+version: '3'
+#
+# NB, this initial setup sets an access token that we can use later
+# run this initially, close it again, then run the general docker-compose file
+# which will use the configured token for access.
+#
+# This docker-compose should only be run once before any other docker-compose instructions
+# to 'seed' influxdb with the _INIT_ variables below - the initial user, password, and Admin
+# Token are set here so that they can be referenced in the server code that needs a token to send
+# metrics data to influx.
+#
+services:
+
+  i2-g-influxdb:
+    build:
+      context: .
+      dockerfile: test-container-config/influxdb/Dockerfile
+    ports:
+      - "127.0.0.1:8186:8086" # console
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: influx
+      DOCKER_INFLUXDB_INIT_PASSWORD: influxpwd
+      DOCKER_INFLUXDB_INIT_ORG: myorg
+      DOCKER_INFLUXDB_INIT_BUCKET: springboot
+      DOCKER_INFLUXDB_INIT_RETENTION: 1w    
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: Rvwf6EnLQkBKGFSkjCY13Fz9AqkPy8MToM0QwnGtQUwseNG9qtffN68lYIndngOxR72FgQ1cQ5C7DL7WXRTB3g==
+    network_mode: "host"
+
