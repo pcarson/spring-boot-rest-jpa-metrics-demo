@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
 ENV TZ=Europe/Berlin
 ENV LC_ALL C.UTF-8

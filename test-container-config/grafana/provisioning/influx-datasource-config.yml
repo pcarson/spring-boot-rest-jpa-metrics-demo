@@ -1,12 +1,23 @@
+apiVersion: 1
 datasources:
-  -  access: direct                      # require username/password
-     user: 'influx'
-     password: 'influxpwd'
-     editable: true                        # whether it should be editable
-     is_default: true                      # whether this should be the default DS
-     name: 'InfluxDB'                      # name of the datasource
-     org_id: 1                             # id of the organization to tie this datasource to
-     type: influxdb                      # type of the data source
-     url: 'http://localhost:8086'          # url of the prom instance
-     database: 'springboot'
-     version: 1                            # well, versioning
+  - name: 'InfluxDB'                      # name of the datasource
+    type: influxdb                        # type of the data source
+    # <string, required> Sets the access mode, either
+    # proxy or direct (Server or Browser in the UI).
+    # Some data sources are incompatible with any setting
+    # but proxy (Server).
+    access: proxy
+    user: 'influx'
+    password: 'influxpwd'
+    editable: true                        # whether it should be editable
+    is_default: true                      # whether this should be the default DS
+    org_id: 1                             # id of the organization to tie this datasource to
+    url: 'http://localhost:8086'          # url of the prom instance
+    database: 'springboot'
+    dbName: springboot
+    httpMode: POST
+    jsonData:
+      httpHeaderName1: 'Authorization'
+    secureJsonData:
+      httpHeaderValue1: 'Token Rvwf6EnLQkBKGFSkjCY13Fz9AqkPy8MToM0QwnGtQUwseNG9qtffN68lYIndngOxR72FgQ1cQ5C7DL7WXRTB3g=='
+    version: 1                            # well, versioning

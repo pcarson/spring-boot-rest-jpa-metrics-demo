@@ -5,30 +5,30 @@ version: '3'
 #
 services:
 
-  sbrjm-influxdb:
+  i2-g-influxdb:
     build:
       context: .
       dockerfile: test-container-config/influxdb/Dockerfile
     ports:
-      - "127.0.0.1:8186:8086"
+      - "127.0.0.1:8186:8086" # console
     env_file:
       - 'test-container-config/influxdb/influxdb.env'
     network_mode: "host"
-  sbrjm-grafana:
+  i2-g-grafana:
     build:
       context: .
       dockerfile: test-container-config/grafana/Dockerfile
     ports:
-      - "127.0.0.1:4000:3000"
+      - "127.0.0.1:4000:3000" # dashboard/console
     env_file:
       - 'test-container-config/grafana/grafana.env'
     depends_on:
-      - sbrjm-influxdb
+      - i2-g-influxdb
     network_mode: "host"
-  sbrjm-demo:
+  rest-demo:
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      - sbrjm-influxdb
+      - i2-g-influxdb
     network_mode: "host"

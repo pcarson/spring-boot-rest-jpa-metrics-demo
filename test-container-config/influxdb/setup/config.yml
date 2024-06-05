@@ -4,6 +4,7 @@
 	"e2e-testing": false,
 	"engine-path": "/var/lib/influxdb2/engine",
 	"feature-flags": null,
+	"flux-enabled": true,
 	"flux-log-enabled": false,
 	"hardening-enabled": false,
 	"http-bind-address": ":8086",

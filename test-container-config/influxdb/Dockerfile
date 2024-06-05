@@ -1,4 +1,4 @@
-FROM influxdb:1.8
+FROM influxdb:latest
 
 # WE have to overwrite the existing conf to enable http auth, which is false by default ...
 COPY test-container-config/influxdb/setup/config.yml /docker-entrypoint-initdb.d/etc/influxdb2/config.yml

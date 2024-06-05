@@ -20,24 +20,17 @@ management:
   influx:
     metrics:
       export:
-        enabled: true # Whether exporting of metrics to this backend is enabled.
-        user-name: influx # Login user of the Influx server.
-        password: influxpwd # Login password of the Influx server.
-        # auto-create-db: true
-        db: springboot
+        enabled: true
+        org: myorg
+        bucket: springboot
         uri: http://localhost:8086
-        compressed: true # Whether to enable GZIP compression of metrics batches published to Influx.
-        connect-timeout: 1s # Connection timeout for requests to this backend.
-        consistency: one # Write consistency for each point.
-        # db=mydb # Tag that will be mapped to "host" when shipping metrics to Influx.
-        num-threads: 2 # Number of threads to use with the metrics publishing scheduler.
-        read-timeout: 10s # Read timeout for requests to this backend.
-        # retention-policy:  # Retention policy to use (Influx writes to the DEFAULT retention policy if one is not specified).
-        # step: 1m # Step size (i.e. reporting frequency) to use.
-    web:
-      server:
-        # i.e. versus setting @Timed annotation on controller
-        auto-time-requests: true
+        token: Rvwf6EnLQkBKGFSkjCY13Fz9AqkPy8MToM0QwnGtQUwseNG9qtffN68lYIndngOxR72FgQ1cQ5C7DL7WXRTB3g==
+        compressed: true
+        connect-timeout: 1s
+        consistency: one
+        num-threads: 2
+        read-timeout: 10s
+        step: 10s
   # expose all metrics endpoints:
   endpoints:
     web:
